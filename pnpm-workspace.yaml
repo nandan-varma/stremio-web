@@ -1,6 +1,20 @@
+minimumReleaseAgeExclude:
+  - '@stremio/*'
+
+blockExoticSubdeps: false
+
+patchedDependencies:
+  a-color-picker@1.2.1: patches/a-color-picker@1.2.1.patch
+
 # Remove once @stremio/stremio-core-web bumps its @babel/runtime pin past 7.24.1
 # GHSA-968p-4wvh-cqc8 (@babel/runtime <7.26.10). Scoped override leaves the
 # direct @babel/runtime@8.0.0 dependency untouched. <8: stremio-core-web
 # imports @babel/runtime/regenerator which v8 removed (only helpers/ remain).
 overrides:
   '@stremio/stremio-core-web>@babel/runtime': '>=7.26.10 <8'
+  '@remix-run/router': '>=1.23.3 <2'
+  serialize-javascript: '>=7.0.5'
+  react-router: '>=6.30.4 <7'
+  uuid: '>=11.1.1'
+  qs: '>=6.16.0'
+  '@babel/core': '>=7.29.6 <8'
